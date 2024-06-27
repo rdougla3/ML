@@ -9,6 +9,8 @@ response = subprocess.run(api)
 api=["./ask_model.sh", model]
 while(True):
     print("\ninput:")
-    response = subprocess.run(api + [(input())],  capture_output = True, text = False)
-    print(response.stdout)
+    response = subprocess.run(api + [(input())],  capture_output = True, text = True)
+    response = json.loads(response.stdout)
+    response = response['response']
+    print(response)
     sleep(0.25)
