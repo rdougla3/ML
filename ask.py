@@ -1,10 +1,14 @@
+import json
 import subprocess
 from time import sleep
 
+model = "llama2"
+api=["./pull_model.sh", model]
+response = subprocess.run(api)
 
+api=["./ask_model.sh", model]
 while(True):
-    api=["./ask_model.sh", "moondream"]
-    print("input:")
-    response = subprocess.run(api + [(input())])
-    print(response)
+    print("\ninput:")
+    response = subprocess.run(api + [(input())],  capture_output = True, text = False)
+    print(response.stdout)
     sleep(0.25)
