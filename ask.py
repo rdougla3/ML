@@ -2,6 +2,10 @@ import json
 import subprocess
 from time import sleep
 
+'''
+python actuator for ollama server via bash
+'''
+
 model = "llama2"
 api=["./pull_model.sh", model]
 response = subprocess.run(api)
